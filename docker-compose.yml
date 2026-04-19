@@ -1,0 +1,35 @@
+services:
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.27.0
+    ports:
+      - "8080:8080"
+      - "50051:50051"
+    restart: unless-stopped
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"
+      PERSISTENCE_DATA_PATH: /var/lib/weaviate
+      DEFAULT_VECTORIZER_MODULE: none
+      ENABLE_MODULES: ""
+      CLUSTER_HOSTNAME: node1
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+
+  neo4j:
+    image: neo4j:5.24-community
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: neo4j/neo4j_password
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_security_procedures_unrestricted: apoc.*
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+
+volumes:
+  weaviate_data:
+  neo4j_data:
+  neo4j_logs:
