@@ -1,27 +1,24 @@
-# Python-generated files
+# Python
 __pycache__/
 *.py[oc]
+*.egg-info
 build/
 dist/
-wheels/
-*.egg-info
 
-# Virtual environments
+# Virtual env
 .venv
 
-# Local env / secrets
+# Secrets
 .env
 
-# Project data and caches
-data/raw/*
-data/processed/*
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-.cache/
+# Data
+data/registry.json
+data/raw/pdfs/*.pdf
+data/raw/pages/*.png
+!data/raw/pdfs/.gitkeep
+
+# Caches / OS
 .ruff_cache/
 .pytest_cache/
-
-# Models / weights
-*.bin
-*.safetensors
-
+.cache/
+.DS_Store
