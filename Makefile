@@ -1,5 +1,5 @@
-# Loads .env first so PYTHONDONTWRITEBYTECODE=1 applies (no __pycache__ in the repo).
-UV_RUN = uv run --env-file .env
+# Always forbid .pyc / __pycache__ (even if .env omits PYTHONDONTWRITEBYTECODE).
+UV_RUN = uv run --env PYTHONDONTWRITEBYTECODE=1 --env-file .env
 
 .PHONY: api ui lock
 

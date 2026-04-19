@@ -1,5 +1,19 @@
 {
   "terminal.integrated.env.osx": { "PYTHONDONTWRITEBYTECODE": "1" },
   "terminal.integrated.env.linux": { "PYTHONDONTWRITEBYTECODE": "1" },
-  "terminal.integrated.env.windows": { "PYTHONDONTWRITEBYTECODE": "1" }
+  "terminal.integrated.env.windows": { "PYTHONDONTWRITEBYTECODE": "1" },
+
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/*.pyo": true
+  },
+  "search.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  },
+  "files.watcherExclude": {
+    "**/__pycache__/**": true
+  },
+  "python.analysis.exclude": ["**/__pycache__"]
 }
